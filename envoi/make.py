@@ -1,3 +1,4 @@
+import sys
 import yaml
 from dataclasses import dataclass
 from datetime import date, timedelta
@@ -39,6 +40,11 @@ class Data:
         return dt
 
 
+def die(message):
+    print(f'{sys.argv[0]}: {message}', file=sys.stderr)
+    sys.exit(1)
+
+
 def build_file(data_dict, output_file):
     if default_rate := data_dict.pop('default_rate', None):
         for entry in data_dict['ledger']:
@@ -62,9 +68,11 @@ def build_sources():
         payer_file = PAYERS_DIR / f'{payer_name}.yaml'
         with payer_file.open(mode='r') as f:
             payer_data = yaml.safe_load(f)
-            payer_defaults = payer_data.pop('defaults', {})
 
-        source_data = payer_defaults | source_data
+        if 'payer' in payer_data:
+            die(f'Payer file {payer_file} should not have a `payer` value')
+
+        source_data = payer_data | source_data
 
         tag = '.paid' if source_data.get('paid') else ''
         output_file = OUTPUT_DIR / f'{source_file.stem}{tag}.pdf'
@@ -77,5 +85,5 @@ def build_sources():
             pass
 
         print(f'Building {output_file}...', end='', flush=True)
-        build_file({**source_data, **payer_data}, output_file)
+        build_file(source_data, output_file)
         print(' done.')

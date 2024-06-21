@@ -10,7 +10,5 @@ bill_to_address:
   - 1600 Pennsylvania Avenue NW
   - Washington, DC 20500-0005
   - (800) 588-2300 Empiiire!
-
-defaults:
-  days_due_in: 30
-  notes: Thank you!
+days_due_in: 30
+notes: Thank you!

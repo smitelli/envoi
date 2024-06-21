@@ -81,10 +81,13 @@ ledger:
 "Payer" File Definition
 -----------------------
 
-The payer file is designed to hold the values that never change between
-invoices. For example, the "bill to" address likely never changes for the
-life of the business relationship, so it can be pulled in by reference via
-the payer file.
+The payer file is designed to hold default values that never change between
+invoices. For example, the "bill to" address likely has the same content for
+the duration of the business relationship, so it can be pulled in by
+reference via the payer file.
+
+Any top-level key supported in a source file can be given here, with the
+exception of `payer`.
 
 ```yaml
 # List of strings to display as the address in the header on page one of the
@@ -104,10 +107,8 @@ bill_to_address:
     - Line 1
     - Line 2
 
-# Optional map. Set a default value for any source file field *except*
-# `payer`, `paid`.
-defaults:
-    X: foo
-    Y: bar
-    Z: baz
+# Optional area. Any key:value allowed in a source file (except for `payer`)
+# can be given here, and will take effect in any instance where a source file
+# does not have that top-level key set.
+days_due_in: 60  # In this example, the source file no longer needs this now.
 ```
