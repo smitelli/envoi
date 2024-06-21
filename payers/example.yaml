@@ -9,7 +9,7 @@ bill_to_address:
   - Mickey Mouse
   - 1600 Pennsylvania Avenue NW
   - Washington, DC 20500-0005
-  - 800-588-2300 Empiiire!
+  - (800) 588-2300 Empiiire!
 
 defaults:
   days_due_in: 30
