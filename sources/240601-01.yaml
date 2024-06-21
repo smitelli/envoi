@@ -1,0 +1,22 @@
+payer: example
+invoice_date: 2024-06-01
+invoice_seq: 1
+default_rate: 99.99
+adjustments: -100.00
+notes: I knocked a hundred off because you're swell folks.
+ledger:
+  - date: 2024-05-03
+    qty: 1
+    description: One hour!
+  - date: 2024-05-10
+    qty: 1.5
+    description: One and a half hours!
+  - date: 2024-05-17
+    qty: 2
+    description: Two hours!
+  - date: 2024-05-24
+    qty: 3
+    description: More than that!
+  - date: 2024-05-31
+    qty: 6
+    description: Most of a day!

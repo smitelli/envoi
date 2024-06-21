@@ -1,0 +1,12 @@
+.venv/
+*.egg-info/
+__pycache__/
+payers/*
+sources/*
+output/*
+
+!payers/example.yaml
+!sources/240601-01.yaml
+!output/240601-01.pdf
+
+.DS_Store

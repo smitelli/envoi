@@ -1,0 +1,16 @@
+header_address:
+  - 742 Evergreen Terrace
+  - Springfield, OR 97477
+  - '[(555) 555-5555](tel:+15555555555)'
+footer_address:
+  - '[www.scottsmitelli.com](https://www.scottsmitelli.com/)'
+  - '[scott@smitelli.com](mailto:scott@smitelli.com)'
+bill_to_address:
+  - Mickey Mouse
+  - 1600 Pennsylvania Avenue NW
+  - Washington, DC 20500-0005
+  - 800-588-2300 Empiiire!
+
+defaults:
+  days_due_in: 30
+  notes: Thank you!
