@@ -22,7 +22,9 @@ python -m venv .venv
 The base name of the source file will be used to name the output file. As an
 example, `sources/240601-01.yaml` will generate `output/240601-01.pdf` when
 it is processed. If the source file has its `paid` flag set, the output file
-is slightly modified to `output/240601-01.paid.pdf`
+is slightly modified to `output/240601-01.paid.pdf` Source files can be
+organized into any arbitrary subdirectory structure beneath the `sources/`
+directory and `output/` will mirror that organization.
 
 ```yaml
 # String containing the base name (without `.yaml`) of the payer file in the

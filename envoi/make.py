@@ -60,7 +60,7 @@ def build_file(data_dict, output_file):
 
 
 def build_sources():
-    for source_file in SOURCES_DIR.rglob('*'):
+    for source_file in SOURCES_DIR.rglob('*.yaml'):
         with source_file.open(mode='r') as f:
             source_data = yaml.safe_load(f)
             payer_name = source_data.pop('payer')
@@ -74,8 +74,11 @@ def build_sources():
 
         source_data = payer_data | source_data
 
-        tag = '.paid' if source_data.get('paid') else ''
-        output_file = OUTPUT_DIR / f'{source_file.stem}{tag}.pdf'
+        output_file = OUTPUT_DIR / source_file.relative_to(SOURCES_DIR)
+        if source_data.get('paid'):
+            output_file = output_file.with_suffix('.paid.pdf')
+        else:
+            output_file = output_file.with_suffix('.pdf')
 
         try:
             t = output_file.stat().st_mtime
