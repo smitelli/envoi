@@ -40,7 +40,7 @@ class Data:
 
 
 def build_file(data_dict, output_file):
-    if default_rate := data_dict.pop('default_rate'):
+    if default_rate := data_dict.pop('default_rate', None):
         for entry in data_dict['ledger']:
             entry.setdefault('rate', default_rate)
 
