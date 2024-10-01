@@ -23,6 +23,7 @@ class Data:
     adjustments: float = 0.0
     notes: str = ''
     paid: bool = False
+    extra_pad: float = 0.0
 
     @property
     def invoice_number(self):

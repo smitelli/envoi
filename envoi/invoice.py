@@ -145,7 +145,7 @@ class Invoice(FPDF):
         with self.local_context(draw_color=self.accent_color), self.table(
             col_widths=(2, 6, 1, 2, 2), text_align=('L', 'L', 'R', 'R', 'R'),
             v_align='T', borders_layout='NONE', headings_style=self.head_style,
-            padding=(0.1, 0.05), line_height=1.5 * self.font_size
+            padding=(0.1 + self.data.extra_pad, 0.05), line_height=1.5 * self.font_size
         ) as table:
             table.get_cell_border = self._cell_border_control
 
