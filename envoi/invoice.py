@@ -118,6 +118,8 @@ class Invoice(FPDF):
 
         l_start = self.y
         self.data_box('BILL TO', '\n'.join(self.data.bill_to_address), 'L', 3.9)
+        if self.data.notes:
+            self.data_box('NOTES', self.data.notes, 'L', 3.9)
         l_end = self.y
 
         self.set_y(l_start)
@@ -127,9 +129,6 @@ class Invoice(FPDF):
         self.set_y(max(l_end, self.y))
 
         self.data_table()
-
-        if self.data.notes:
-            self.data_box('NOTES', self.data.notes, 'L', 3.9)
 
     def data_box(self, t1, t2, align, width):
         with self.local_context(draw_color=self.accent_color), self.table(
